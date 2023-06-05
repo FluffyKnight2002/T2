@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hi User</h1>
+<span sec:authorize="authenticated">
+                <h3 sec:authentication="principal.username"></h3>
+            </span>
+
+<span sec:authorize="authenticated">
+                <h3 sec:authentication="principal.userId"></h3>
+            </span>
+<span sec:authorize="authenticated">
+                <h3 sec:authentication="principal.email"></h3>
+            </span>
+<span sec:authorize="authenticated">
+                <h3 sec:authentication="principal.role"></h3>
+            </span>
+<a th:href="@{/logout}"><button type="submit">Logout</button></a>
+<a sec:authorize="authenticated" th:href="@{/logout}" class="delete-btn" id="log">logout</a>
+</body>
+</html>
